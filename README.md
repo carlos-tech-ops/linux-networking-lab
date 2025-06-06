@@ -116,7 +116,7 @@ In this section, we configure DNS resolvers manually and validate DNS resolution
 
 📸 Screenshot:  
 `08-resolv-conf-dns-set.png`  
-_Path: `screenshots/08-resolv-conf-dns-set.png`_
+_Path: ![08](screenshots/08-resolv-conf-dns-set.png)_
 
 ---
 
@@ -132,7 +132,7 @@ Expected Output:
 
 📸 Screenshot:  
 `09-dig-github-success.png`  
-_Path: `screenshots/09-dig-github-success.png`_
+_Path: ![09](screenshots/09-dig-github-success.png)_
 
 ---
 
@@ -148,7 +148,7 @@ Expected Output:
 
 📸 Screenshot:  
 `10-ping-github-success.png`  
-_Path: `screenshots/10-ping-github-success.png`_
+_Path: ![10](screenshots/10-ping-github-success.png)_
 
 ---
 
