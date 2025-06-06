@@ -98,3 +98,59 @@ ping -c 3 fedora-lab
 | 3️⃣  | `ping fedora-lab` successful             | ![07](screenshots/07-ping-fedora-lab-success.png) |
 
 ---
+
+## 📡 Phase 3B – DNS Configuration & Testing
+
+In this section, we configure DNS resolvers manually and validate DNS resolution using diagnostic tools.
+
+---
+
+### 🛠️ DNS Configuration
+
+| Step | Command | Purpose |
+|------|---------|---------|
+| 1️⃣  | `sudo nano /etc/resolv.conf` | Edit DNS configuration file manually |
+| 2️⃣  | Add the following lines: <br> `nameserver 1.1.1.1` <br> `nameserver 8.8.8.8` | Set Cloudflare and Google as DNS resolvers |
+| 3️⃣  | Save and exit (`CTRL + O`, `Enter`, `CTRL + X`) | Apply the DNS changes |
+| 4️⃣  | `cat /etc/resolv.conf` | Confirm resolvers are correctly set |
+
+📸 Screenshot:  
+`08-resolv-conf-dns-set.png`  
+_Path: `screenshots/08-resolv-conf-dns-set.png`_
+
+---
+
+### 🧪 DNS Lookup Test (dig)
+
+| Step | Command | Description |
+|------|---------|-------------|
+| ✅   | `dig github.com` | Query DNS to resolve GitHub’s IP address |
+
+Expected Output:
+- You should see an **ANSWER SECTION** with GitHub's IP addresses.
+- `Query time`, `SERVER`, and `WHEN` values validate DNS resolution is working.
+
+📸 Screenshot:  
+`09-dig-github-success.png`  
+_Path: `screenshots/09-dig-github-success.png`_
+
+---
+
+### 🧪 DNS Test (ping)
+
+| Step | Command | Description |
+|------|---------|-------------|
+| ✅   | `ping -c 3 github.com` | Validate name resolution + connectivity |
+
+Expected Output:
+- 3 replies from GitHub’s IP (usually a `20.x.x.x` address).
+- **0% packet loss**, and time in milliseconds.
+
+📸 Screenshot:  
+`10-ping-github-success.png`  
+_Path: `screenshots/10-ping-github-success.png`_
+
+---
+
+✅ **Summary:**  
+We configured DNS resolvers by editing `/etc/resolv.conf`, validated them with `dig`, and confirmed hostname resolution via `ping`. These are core diagnostics for sysadmins and network troubleshooting.
