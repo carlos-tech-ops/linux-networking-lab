@@ -115,8 +115,7 @@ In this section, we configure DNS resolvers manually and validate DNS resolution
 | 4️⃣  | `cat /etc/resolv.conf` | Confirm resolvers are correctly set |
 
 📸 Screenshot:  
-`08-resolv-conf-dns-set.png`  
-_Path: ![08](screenshots/08-resolv-conf-dns-set.png)_
+![08](screenshots/08-resolv-conf-dns-set.png)_
 
 ---
 
@@ -131,8 +130,7 @@ Expected Output:
 - `Query time`, `SERVER`, and `WHEN` values validate DNS resolution is working.
 
 📸 Screenshot:  
-`09-dig-github-success.png`  
-_Path: ![09](screenshots/09-dig-github-success.png)_
+![09](screenshots/09-dig-github-success.png)_
 
 ---
 
@@ -147,8 +145,7 @@ Expected Output:
 - **0% packet loss**, and time in milliseconds.
 
 📸 Screenshot:  
-`10-ping-github-success.png`  
-_Path: ![10](screenshots/10-ping-github-success.png)_
+![10](screenshots/10-ping-github-success.png)_
 
 ---
 
