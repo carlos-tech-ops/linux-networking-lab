@@ -187,6 +187,79 @@ In this phase, we tested and validated network configurations, DNS functionality
 
 ---
 
+### 🔐 SSH Service Verification & Remote Login
+
+This section validates that SSH is securely configured and running on the Fedora lab machine, using diagnostics and a successful remote login from the MacBook.
+
+---
+
+#### 🛡️ SSH Port Listening
+
+Checked whether the SSH daemon is listening on the correct custom port (`2222`):
+
+```bash
+sudo ss -tuln | grep 2222
+```
+
+✅ Validation: Port `2222` is actively listening for incoming SSH connections.
+
+📸 Screenshot:
+![19](screenshots/19-sshd-port-listening.png)
+
+---
+
+#### 🧠 SSH Daemon Configuration
+
+Inspected `/etc/ssh/sshd_config` to confirm secure options:
+
+- `Port 2222`
+- `PasswordAuthentication no`
+- `PermitRootLogin no`
+- `AllowUsers sysops`
+- `Protocol 2`
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+📸 Screenshots:
+- ![20-0](screenshots/20-sshd-config-0.png)
+- ![20-1](screenshots/20-sshd-config-1.png)
+
+---
+
+#### 📜 SSH Service Logs (journalctl)
+
+Used `journalctl` to view logs for `sshd` and confirm service restart and activity:
+
+```bash
+sudo journalctl -u sshd --since "15 minutes ago"
+```
+
+✅ Validation: SSH service restarted and bound to the correct port.
+
+📸 Screenshot:
+![20-journal](screenshots/20-sshd-journalctl-output.png)
+
+---
+
+#### 💻 Remote Login Test from MacBook
+
+Used the MacBook Terminal to connect to the Fedora machine via:
+
+```bash
+ssh sysops@192.168.1.50 -p 2222
+```
+
+✅ Login successful using SSH key-based authentication.
+
+📸 Screenshot:
+![21](screenshots/21-ssh-remote-login-success.png)
+
+---
+
+✅ **Result**: SSH is securely configured, actively running on port 2222, and accessible only via key-based login from trusted devices.
+
 ---
 
 ✅ **Summary:**  
