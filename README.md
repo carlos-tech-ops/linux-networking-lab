@@ -149,5 +149,118 @@ Expected Output:
 
 ---
 
+---
+
+## 🧪 Phase 3C – Network Diagnostics Tools
+
+In this phase, we tested and validated network configurations, DNS functionality, service routes, and port availability using key diagnostic tools.
+
+---
+
+### 🛠️ Tools Used
+
+| Command                | Purpose                                      |
+|------------------------|----------------------------------------------|
+| `ping`                 | Test basic IP connectivity                   |
+| `dig`                  | Perform DNS lookup                           |
+| `ss -tuln`             | Show listening ports (TCP/UDP)               |
+| `netstat -tuln`        | Legacy alternative to `ss`                   |
+| `nmcli dev show`       | Display detailed device connection info      |
+| `journalctl -u NetworkManager` | View network-related logs          |
+| `ip route`             | View current routing table                   |
+| `traceroute`           | Show packet path to destination              |
+
+---
+
+### 📸 Screenshots
+
+| Step | Description                             | Screenshot |
+|------|-----------------------------------------|------------|
+| 1️⃣  | `ping google.com` successful            | ![11](screenshots/11-ping-google-success.png) |
+| 2️⃣  | `dig google.com` DNS resolution         | ![12](screenshots/12-dig-google-response.png) |
+| 3️⃣  | `ss -tuln` showing listening ports       | ![13](screenshots/13-ss-listening-ports.png) |
+| 4️⃣  | `netstat -tuln` legacy output            | ![14](screenshots/14-netstat-listening-ports.png) |
+| 5️⃣  | `nmcli dev show` detailed info           | ![15](screenshots/15-nmcli-dev-show.png) |
+| 6️⃣  | `journalctl -u NetworkManager` log check | ![16](screenshots/16-journalctl-networkmanager.png) |
+| 7️⃣  | `ip route` routing summary               | ![17](screenshots/17-ip-route-summary.png) |
+| 8️⃣  | `traceroute google.com` multi-hop test   | ![18](screenshots/18-traceroute-google.png) |
+
+---
+
+### 🔐 SSH Service Verification & Remote Login
+
+This section validates that SSH is securely configured and running on the Fedora lab machine, using diagnostics and a successful remote login from the MacBook.
+
+---
+
+#### 🛡️ SSH Port Listening
+
+Checked whether the SSH daemon is listening on the correct custom port (`2222`):
+
+```bash
+sudo ss -tuln | grep 2222
+```
+
+✅ Validation: Port `2222` is actively listening for incoming SSH connections.
+
+📸 Screenshot:
+![19](screenshots/19-sshd-port-listening.png)
+
+---
+
+#### 🧠 SSH Daemon Configuration
+
+Inspected `/etc/ssh/sshd_config` to confirm secure options:
+
+- `Port 2222`
+- `PasswordAuthentication no`
+- `PermitRootLogin no`
+- `AllowUsers sysops`
+- `Protocol 2`
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+📸 Screenshots:
+- ![20-0](screenshots/20-sshd-config-0.png)
+- ![20-1](screenshots/20-sshd-config-1.png)
+
+---
+
+#### 📜 SSH Service Logs (journalctl)
+
+Used `journalctl` to view logs for `sshd` and confirm service restart and activity:
+
+```bash
+sudo journalctl -u sshd --since "15 minutes ago"
+```
+
+✅ Validation: SSH service restarted and bound to the correct port.
+
+📸 Screenshot:
+![20-journal](screenshots/20-sshd-journalctl-output.png)
+
+---
+
+#### 💻 Remote Login Test from MacBook
+
+Used the MacBook Terminal to connect to the Fedora machine via:
+
+```bash
+ssh sysops@192.168.1.50 -p 2222
+```
+
+✅ Login successful using SSH key-based authentication.
+
+📸 Screenshot:
+![21](screenshots/21-ssh-remote-login-success.png)
+
+---
+
+✅ **Result**: SSH is securely configured, actively running on port 2222, and accessible only via key-based login from trusted devices.
+
+---
+
 ✅ **Summary:**  
 We configured DNS resolvers by editing `/etc/resolv.conf`, validated them with `dig`, and confirmed hostname resolution via `ping`. These are core diagnostics for sysadmins and network troubleshooting.
