@@ -260,5 +260,108 @@ ssh sysops@192.168.1.50 -p 2222
 
 ---
 
-✅ **Summary:**  
-We configured DNS resolvers by editing `/etc/resolv.conf`, validated them with `dig`, and confirmed hostname resolution via `ping`. These are core diagnostics for sysadmins and network troubleshooting.
+## 🔥 Phase 3E – Firewall & Port Control
+
+This phase focused on inspecting and modifying the Fedora firewall using `firewalld` to allow secure access on the custom SSH port (`2222`). We validated port accessibility with system commands and remote scanning tools.
+
+---
+
+### 🎯 Objectives
+
+- Confirm firewalld is running and managing zones
+- Open TCP port 2222 permanently
+- Reload firewall rules
+- Validate SSH port status with `ss`, `nmap`, and a live SSH login
+
+---
+
+### 🛠️ Tools Used
+
+| Command                      | Purpose                                |
+|------------------------------|----------------------------------------|
+| `firewall-cmd`               | Manage firewalld rules and zones       |
+| `ss -tuln`                   | Show listening TCP/UDP ports           |
+| `nmap`                       | Scan open ports from another machine   |
+| `ssh`                        | Test connectivity to the SSH service   |
+
+---
+
+### 🔍 Firewall State & Zones
+
+| ✅ Checkpoint                           | Output                                |
+|----------------------------------------|----------------------------------------|
+| `sudo firewall-cmd --state`            | `running` – confirms firewalld is active |
+| `sudo firewall-cmd --get-active-zones`| Displays zones: `FedoraWorkstation`, `trusted`, `drop` |
+| `sudo firewall-cmd --list-all`        | Shows `drop` as default with custom rules |
+
+📸 Screenshots:
+
+- ![22](screenshots/22-firewall-state.png)
+- ![23](screenshots/23-firewall-active-zones.png)
+- ![24](screenshots/24-firewall-zone-drop-list-all.png)
+
+---
+
+### 🔐 Port 2222 Configuration
+
+| Action                        | Command(s) Executed                                   |
+|------------------------------|--------------------------------------------------------|
+| Open port temporarily        | `sudo firewall-cmd --add-port=2222/tcp`               |
+| Open port permanently        | `sudo firewall-cmd --permanent --add-port=2222/tcp`   |
+| Reload firewall              | `sudo firewall-cmd --reload`                          |
+| Confirm rule took effect     | `sudo ss -tuln \| grep 2222`                          |
+
+📸 Screenshots:
+
+- ![25](screenshots/25-firewall-port-2222-added.png)
+- ![26](screenshots/26-firewall-reload-success.png)
+- ![27](screenshots/27-ss-port-2222-listening.png)
+
+---
+
+### 🌐 External Port Verification (nmap)
+
+From the Fedora machine, we scanned its own IP to ensure port 2222 is open:
+
+```bash
+sudo nmap -p 2222 192.168.1.50
+```
+
+✅ Output: Port 2222 was reported as `open`.
+
+📸 Screenshot:
+
+- ![28](screenshots/28-nmap-2222-port-open.png)
+
+---
+
+### ✅ SSH Remote Login via Port 2222
+
+Final test from MacBook to Fedora:
+
+```bash
+ssh sysops@192.168.1.50 -p 2222
+```
+
+✅ Result: Login successful with public key authentication.
+
+📸 Screenshot:
+
+- ![29](screenshots/29-ssh-success-2222.png)
+
+---
+
+### 🧠 Summary
+
+| ✅ Task                                  | Status     |
+|------------------------------------------|------------|
+| firewalld confirmed active               | ✅          |
+| port 2222 opened temporarily + permanently | ✅        |
+| firewall rules reloaded successfully     | ✅          |
+| `ss` confirmed SSH daemon listening      | ✅          |
+| `nmap` confirmed remote visibility       | ✅          |
+| SSH login using port 2222 validated      | ✅          |
+
+> 🔐 **Why this matters:** Real-world servers are often protected by firewalls with limited open ports. Knowing how to inspect, configure, and validate firewall access is essential for sysadmins, DevOps, and security professionals.
+
+---
