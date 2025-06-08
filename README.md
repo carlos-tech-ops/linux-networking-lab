@@ -365,3 +365,32 @@ ssh sysops@192.168.1.50 -p 2222
 > 🔐 **Why this matters:** Real-world servers are often protected by firewalls with limited open ports. Knowing how to inspect, configure, and validate firewall access is essential for sysadmins, DevOps, and security professionals.
 
 ---
+
+## ✅ Phase 3F – Final Recap & Validation Checklist
+
+This final phase summarizes the outcomes of our Linux Networking Lab across Phases 3A–3E, validating that each core concept was understood, tested, and documented.
+
+---
+
+### 📊 Objectives Recap Table
+
+| Phase | Topic                             | Objective                                                                  | Status     | Evidence                         |
+|-------|-----------------------------------|----------------------------------------------------------------------------|------------|----------------------------------|
+| 3A    | Interfaces & Static IP Setup      | Display IP, set static IP, inspect routes                                  | ✅ Done     | Screenshots 01–04, 05            |
+| 3B    | Hostname & DNS Configuration      | Set hostname, edit /etc/hosts, configure DNS, test resolution              | ✅ Done     | Screenshots 06–07, 08–10         |
+| 3C    | Network Diagnostics Tools         | Use `ping`, `dig`, `ss`, `netstat`, `nmcli`, `journalctl`, `traceroute`   | ✅ Done     | Screenshots 11–18                |
+| 3D    | SSH & Remote Connectivity         | Harden SSH config, verify logs, test login via port 2222                   | ✅ Done     | Screenshots 19–21                |
+| 3E    | Firewall & Port Control           | Validate `firewalld`, open SSH port, reload, test via Nmap and SSH         | ✅ Done     | Screenshots 22–29                |
+
+---
+
+### 🏁 Final Remarks
+
+All key networking and security topics were executed live in a Fedora Linux environment and remotely validated from a MacBook control node. This lab proves hands-on mastery over:
+
+- IP and DNS configuration
+- SSH hardening and access control
+- Firewall zone and port management
+- Service diagnostics using real-world CLI tools
+
+---
