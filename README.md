@@ -42,9 +42,7 @@ This phase focuses on essential networking concepts and commands used to inspect
 
 ---
 
-## 🌐 Static IP Configuration + Hostname + /etc/hosts
-
-### 🎯 Objective
+## 🌐 Phase 3A – Interfaces & Static IP Setup
 
 Manually assign a static IP to the Fedora laptop and map it to a custom hostname using `/etc/hosts`. This setup improves SSH stability, scripting, and internal network recognition — all critical for sysadmin and DevOps tasks.
 
@@ -187,7 +185,7 @@ In this phase, we tested and validated network configurations, DNS functionality
 
 ---
 
-### 🔐 SSH Service Verification & Remote Login
+## 🔐 Phase 3D – SSH & Remote Connectivity
 
 This section validates that SSH is securely configured and running on the Fedora lab machine, using diagnostics and a successful remote login from the MacBook.
 
