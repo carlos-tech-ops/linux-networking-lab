@@ -1,9 +1,12 @@
-
-
-
 ## ⚙️ Phase 3: Linux Networking Lab
 
 This phase focuses on essential networking concepts and commands used to inspect and troubleshoot network configurations on a Linux system. The commands were executed on a remote Fedora host accessed via hardened SSH from a MacBook terminal.
+
+
+## 📄 Download Full Lab Report (PDF)
+
+👉 [Click here to download the complete Linux Networking Lab PDF](https://github.com/carlos-tech-ops/linux-networking-lab/raw/main/docs/linux-networking-lab.pdf)
+
 
 ### ✅ Objectives
 
