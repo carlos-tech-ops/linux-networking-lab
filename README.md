@@ -394,3 +394,96 @@ All key networking and security topics were executed live in a Fedora Linux envi
 - Service diagnostics using real-world CLI tools
 
 ---
+
+![IP Address Output](screenshots/01-ip-address-output.png)  
+*Figure 1: IP Address Output*
+
+![Routing Table](screenshots/02-routing-table.png)  
+*Figure 2: Routing Table*
+
+![NMCLI Device Status](screenshots/03-nmcli-device-status.png)  
+*Figure 3: NMCLI Device Status*
+
+![IP Link Summary](screenshots/04-ip-link-summary.png)  
+*Figure 4: IP Link Summary*
+
+![Static IP Config + Ping Test](screenshots/05-static-ip-ping-success.png)  
+*Figure 5: Static IP Config + Ping Test*
+
+![Hostname Set Attempt](screenshots/06-hostnamectl-fedora-lab.png)  
+*Figure 6: Hostname Set Attempt*
+
+![Ping fedora-lab](screenshots/07-ping-fedora-lab-success.png)  
+*Figure 7: Ping fedora-lab*
+
+![DNS Resolver Config (/etc/resolv.conf)](screenshots/08-resolv-conf-dns-set.png)  
+*Figure 8: DNS Resolver Config (/etc/resolv.conf)*
+
+![dig github.com – DNS Test](screenshots/09-dig-github-success.png)  
+*Figure 9: dig github.com – DNS Test*
+
+![ping github.com – DNS & Connectivity Test](screenshots/10-ping-github-success.png)  
+*Figure 10: ping github.com – DNS & Connectivity Test*
+
+![ping google.com – Connectivity Test](screenshots/11-ping-google-success.png)  
+*Figure 11: ping google.com – Connectivity Test*
+
+![dig google.com – DNS Lookup](screenshots/12-dig-google-response.png)  
+*Figure 12: dig google.com – DNS Lookup*
+
+![ss -tuln – Listening Ports](screenshots/13-ss-listening-ports.png)  
+*Figure 13: ss -tuln – Listening Ports*
+
+![netstat -tuln – Listening Ports](screenshots/14-netstat-listening-ports.png)  
+*Figure 14: netstat -tuln – Listening Ports*
+
+![nmcli dev show – Device Info](screenshots/15-nmcli-dev-show.png)  
+*Figure 15: nmcli dev show – Device Info*
+
+![journalctl -u NetworkManager – Logs](screenshots/16-journalctl-networkmanager.png)  
+*Figure 16: journalctl -u NetworkManager – Logs*
+
+![ip route – Routing Summary](screenshots/17-ip-route-summary.png)  
+*Figure 17: ip route – Routing Summary*
+
+![traceroute google.com – Route Test](screenshots/18-traceroute-google.png)  
+*Figure 18: traceroute google.com – Route Test*
+
+![ss -tuln – SSHD Port 2222 Listening](screenshots/19-sshd-port-listening.png)  
+*Figure 19: ss -tuln – SSHD Port 2222 Listening*
+
+![sshd_config – Part 1](screenshots/20-sshd-config-0.png)  
+*Figure 20: sshd_config – Part 1*
+
+![sshd_config – Part 2](screenshots/20-sshd-config-1.png)  
+*Figure 21: sshd_config – Part 2*
+
+![journalctl -u sshd – Service Restart Logs](screenshots/20-sshd-journalctl-output.png)  
+*Figure 22: journalctl -u sshd – Service Restart Logs*
+
+![Remote Login Success from MacBook](screenshots/21-ssh-remote-login-success.png)  
+*Figure 23: Remote Login Success from MacBook*
+
+![firewall-cmd – State Check](screenshots/22-firewall-state.png)  
+*Figure 24: firewall-cmd – State Check*
+
+![firewall-cmd – Active Zones](screenshots/23-firewall-active-zones.png)  
+*Figure 25: firewall-cmd – Active Zones*
+
+![firewall-cmd – drop Zone Details](screenshots/24-firewall-zone-drop-list-all.png)  
+*Figure 26: firewall-cmd – drop Zone Details*
+
+![Port 2222 Temporarily Added](screenshots/25-firewall-port-2222-added.png)  
+*Figure 27: Port 2222 Temporarily Added*
+
+![firewall-cmd Reload](screenshots/26-firewall-reload-success.png)  
+*Figure 28: firewall-cmd Reload*
+
+![ss -tuln – Post-Firewall Validation](screenshots/27-ss-port-2222-listening.png)  
+*Figure 29: ss -tuln – Post-Firewall Validation*
+
+![nmap – Port 2222 Open](screenshots/28-nmap-2222-port-open.png)  
+*Figure 30: nmap – Port 2222 Open*
+
+![SSH Login via Port 2222](screenshots/29-ssh-success-2222.png)  
+*Figure 31: SSH Login via Port 2222*
